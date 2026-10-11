@@ -9,16 +9,31 @@
   <style>
     * { box-sizing: border-box; }
     body { margin: 0; min-height: 100svh; display: grid; place-items: center; background: #f3e7d3; font-family: Georgia, serif; color: #30251c; }
-    main { width: min(100%, 1200px); padding: clamp(12px, 3vw, 32px); text-align: center; }
+    main { width: min(100%, 1200px); padding: clamp(16px, 3vw, 32px); text-align: center; }
+    h1 { font-size: clamp(2rem, 6vw, 3.5rem); margin: 0 0 28px; }
+    button, a { display: inline-block; padding: 14px 28px; border: 0; border-radius: 6px; background: #263c43; color: #fff; text-decoration: none; font: 18px Georgia, serif; cursor: pointer; }
+    button:hover, button:focus-visible, a:hover, a:focus-visible { background: #39565e; }
     img { display: block; width: 100%; height: auto; border-radius: 5px; box-shadow: 0 14px 45px #3b261d33; }
-    a { display: inline-block; margin-top: 24px; padding: 12px 24px; border-radius: 6px; background: #263c43; color: #fff; text-decoration: none; font-size: 16px; }
-    a:hover, a:focus-visible { background: #39565e; }
+    a { margin-top: 24px; font-size: 16px; }
+    [hidden] { display: none !important; }
   </style>
 </head>
 <body>
   <main>
-    <img src="bono.jpg" alt="Bono regalo de cumpleaños: una ciudad de Europa, vuelos y dos noches de alojamiento para dos personas, hasta 250 euros, canjeable de enero a junio de 2027." />
-    <a href="bono.jpg" download="bono-regalo-cumpleanos.jpg">Descargar mi regalo</a>
+    <section id="bienvenida">
+      <h1>¡Feliz cumpleaños! 🎁</h1>
+      <button id="ver-regalo" type="button">Ver mi regalo</button>
+    </section>
+    <section id="regalo" hidden>
+      <img src="bono.jpg" alt="Bono regalo de cumpleaños: una ciudad de Europa, vuelos y dos noches de alojamiento para dos personas, hasta 250 euros, canjeable de enero a junio de 2027." />
+      <a href="bono.jpg" download="bono-regalo-cumpleanos.jpg">Descargar mi regalo</a>
+    </section>
   </main>
+  <script>
+    document.getElementById('ver-regalo').addEventListener('click', () => {
+      document.getElementById('bienvenida').hidden = true;
+      document.getElementById('regalo').hidden = false;
+    });
+  </script>
 </body>
 </html>
